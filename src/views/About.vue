@@ -10,7 +10,7 @@
                 <div class="caption mt-4" v-html="selectedShow.summary"></div>
                 <div v-if="selectedShow.rating" class="headline ma-3">
                   Rating : {{selectedShow.rating.average}}
-                  <v-icon dark>mdi-spin</v-icon>
+                  <v-icon dark>mdi-star</v-icon>
                 </div>
                 <v-chip-group column>
                   <v-chip v-for="genre in selectedShow.genres" :key="genre">

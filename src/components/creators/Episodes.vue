@@ -7,7 +7,9 @@
             <v-row>
                 <v-col v-for="item in seasonWiseList" :key="item.id">
                     <v-card class="mx-auto" shaped:true width="300" elevation=2>
-                        <v-card-subtitle class="blue--text pb" align="center">{{item.number}}{{` `}}{{item.name}}</v-card-subtitle>
+                        <a style="text-decoration: none" :href="item.url" target="_blank">
+                            <span>{{item.number}}{{` `}}{{item.name}}</span>
+                        </a>                     
                     </v-card>
                 </v-col>
             </v-row>

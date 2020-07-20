@@ -10,7 +10,7 @@
                     <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="#036358">
                             <div class="display-2">{{show.language}}</div>
-                            <div class="display-2">{{show.rating.average}}</div>
+                            <div class="display-2">{{show.rating.average}}<v-icon size="32">mdi-star</v-icon></div>
                         </v-overlay>
                     </v-fade-transition>
                     </v-card>

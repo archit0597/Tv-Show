@@ -5,7 +5,7 @@
             <v-avatar v-else style="float:left;"><v-icon>mdi-human-greeting</v-icon></v-avatar>
             <span style="float:left;">{{cast.person.name}}</span>
             <template v-slot:actions>
-                <a style="text-decoration: none" :href="cast.person.url" target="_blank"><span class="font-weight-bold">{{cast.character.name}}</span><v-icon color="primary" size="36">mdi-launch</v-icon></a>    
+                <a style="text-decoration: none" :href="cast.person.url" target="_blank"><span class="font-weight-bold">{{cast.character.name}}</span><v-icon color="blue-grey" size="32">mdi-launch</v-icon></a>    
             </template>
         </v-banner>
     </div>
