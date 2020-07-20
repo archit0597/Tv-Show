@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="text-center progress" v-if="allShowList.length==0">
+    <div class="text-center progress" v-if="allShowList.length==0 && !errorStatus">
       <v-progress-circular :size="70" :width="7" color="blue-grey" indeterminate></v-progress-circular>
     </div>
     <app-hits v-if="allShowList.length" :list="allShowList"></app-hits>
@@ -22,7 +22,8 @@ export default {
   data(){
     return{
       allShowList : [],
-      genreList: []
+      genreList: [],
+      errorStatus: false,
     }
   },
   created(){
@@ -35,17 +36,16 @@ export default {
         this.allShowList = thePromiseData.data;
       }
       catch(err){
+        this.errorStatus = true;
         console.log(err);
       }
       this.getGenres();
     },
     getGenres(){
+      let tempSet = new Set(); 
       this.allShowList.forEach(element => {
-        element.genres.forEach(genre => {
-          if(!this.genreList.includes(genre)){
-            this.genreList.push(genre);
-          }
-        });
+        tempSet.add(...element.genres);
+        this.genreList = [...tempSet]
         this.genreList.sort();
       });
     }

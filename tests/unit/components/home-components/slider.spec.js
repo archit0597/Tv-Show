@@ -5,7 +5,6 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import {routes} from '@/router/index.js';
-import { getAllShows } from '@/services/service.js';
 
 describe("In Slider Component", () => {
     let sliderWrapper;

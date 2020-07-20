@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import CastTeam from '../../../../src/components/creators/CastTeam.vue';
+import CastTeam from '@/components/creators/CastTeam.vue';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import AboutCard from '@/views/About.vue';
-import AppProductionTeam from '@/components/creators/ProductionTeam.vue';
+import AppShowInfo from '@/components/creators/ShowInfo.vue';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
@@ -63,4 +63,8 @@ describe("In About View", () => {
     it("is a Vue instance", () => {
         expect(aboutShowWrapper.isVueInstance).toBeTruthy();
     });
+    
+    it("should load AppShowInfo",()=>{
+        expect(AppShowInfo).toBeTruthy();
+    })
 });

@@ -18,7 +18,7 @@
                     {{ genre }}
                   </v-chip>
                 </v-chip-group>
-                 <app-production-team :id="selectedShow.id"></app-production-team>
+                 <app-show-info :id="selectedShow.id"></app-show-info>
               </v-col>
             </v-row>
           </v-overlay>
@@ -27,7 +27,8 @@
     </v-row>
 </template>
 <script>
-import AppProductionTeam from '@/components/creators/ProductionTeam.vue';
+import AppShowInfo from '@/components/creators/ShowInfo.vue';
+
 export default {
   data(){
     return{
@@ -35,7 +36,7 @@ export default {
     }
   },
   components:{
-    AppProductionTeam
+    AppShowInfo
   },
   methods:{
     init(){

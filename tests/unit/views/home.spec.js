@@ -44,7 +44,8 @@ describe("In Home View", () => {
                             "rating":{"average":9.5},
                             "genres":["Thriller","Crime"]
                         }],
-                        genreList:["Drama","Action","Science Fiction","Crime","Thriller"]
+                        genreList:["Drama","Action","Science Fiction","Crime","Thriller"],
+                        errorStatus: false
                 }
             },
         });

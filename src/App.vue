@@ -2,9 +2,9 @@
   <v-app>
     <app-header/>
     <keep-alive>
-      <v-content>
+      <v-main>
         <router-view/>
-      </v-content>
+      </v-main>
     </keep-alive>
     <app-footer/>
   </v-app>
@@ -15,14 +15,9 @@ import AppFooter from './components/footer/Footer.vue';
 
 export default {
   name: 'App',
-
   components: {
     AppHeader,
     AppFooter
-  },
-
-  data: () => ({
-    //
-  }),
+  }
 };
 </script>

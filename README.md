@@ -1,9 +1,20 @@
-# tvshows-app
+# Binge-app
 
 ## Project setup
 ```
 npm install
 ```
+
+## Axios install
+```
+npm install axios
+```
+
+## Vuex Persistance install
+```
+npm install --save vuex-persistedstate
+```
+
 
 ### Compiles and hot-reloads for development
 ```
