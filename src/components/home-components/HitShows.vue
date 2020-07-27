@@ -1,5 +1,5 @@
 <template>
-            <v-sheet align="center" color="blue-grey">  
+            <v-sheet align="center" color="blue-grey" height="45%">  
                 <v-carousel cycle height="100%">
                     <v-carousel-item v-for="(show, i) in showList" :key="i" style="cursor:pointer" 
                     @click="showDetails(show)">

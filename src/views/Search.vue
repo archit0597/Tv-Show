@@ -5,11 +5,13 @@
             solo label="Search Shows" v-model="searchQuery"></v-text-field>
         </v-container>
         <v-row v-if="searchTrigger">
-                <v-row v-if="searchResults.length!=0">
-                    <v-col v-for="item in searchResults" :key="item.id" class="ml-5" cols="auto">
-                        <app-show-card :show="item.show" class="zoom"></app-show-card>
-                    </v-col>
-                </v-row>
+                <v-container v-if="searchResults.length!=0">
+                    <v-row>
+                        <v-col v-for="item in searchResults" :key="item.id" class="ml-5" cols="auto">
+                            <app-show-card :show="item.show" class="zoom"></app-show-card>
+                        </v-col>
+                    </v-row>
+                </v-container>
                 <v-row v-else>
                     <v-container>
                         <v-card class="mx-auto" elevation=3>

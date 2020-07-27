@@ -1,7 +1,7 @@
 <template>
     <div id="card">
         <v-hover v-slot:default="{ hover }">
-            <v-card class="ma-3" shaped width="170" :elevation="hover ? 12 : 2" @click="showDetails(currentShow)">
+            <v-card shaped width="70%" height="90%" :elevation="hover ? 12 : 2" @click="showDetails(currentShow)">
                 <v-container>
                     <v-row justify="space-between">
                         <v-col cols="auto">

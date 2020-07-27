@@ -55,6 +55,15 @@ describe("In Search Component", () => {
         
     });
 
+    it("it should check searchShow response when searchQuery is empty",()=>{
+        searchWrapper.setData({ searchQuery: 'Game' });
+        searchWrapper.vm.searchShow();
+        searchWrapper.setData({ searchQuery: '' });
+        searchWrapper.vm.searchShow();
+        expect(searchWrapper.vm.searchTrigger).toBe(false);
+        
+    });
+
     it("check api response when searchQuery is valid",async()=>{
         searchWrapper.setData({ searchQuery: 'Game' });
         let response = await getShowsByName(searchWrapper.vm.searchQuery);
