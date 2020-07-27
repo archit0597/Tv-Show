@@ -34,6 +34,7 @@ export default {
       try{
         const thePromiseData = await getAllShows();
         this.allShowList = thePromiseData.data;
+        this.errorStatus = false;
       }
       catch(err){
         this.errorStatus = true;
@@ -46,7 +47,7 @@ export default {
       this.allShowList.forEach(element => {
         tempSet.add(...element.genres);
         this.genreList = [...tempSet]
-        this.genreList.sort();
+        this.genreList.sort().pop();
       });
     }
   }

@@ -1,13 +1,19 @@
 <template>
-    <div id="cast">
-        <v-banner single-line>
-            <v-avatar v-if="cast.person.image!=null" style="float:left;"><v-img :src="cast.person.image.medium" alt="NA" /></v-avatar>
-            <v-avatar v-else style="float:left;"><v-icon>mdi-human-greeting</v-icon></v-avatar>
-            <span style="float:left;">{{cast.person.name}}</span>
-            <template v-slot:actions>
-                <a style="text-decoration: none" :href="cast.person.url" target="_blank"><span class="font-weight-bold">{{cast.character.name}}</span><v-icon color="blue-grey" size="32">mdi-launch</v-icon></a>    
-            </template>
-        </v-banner>
+    <div id="cast">        
+        <v-list style="height:50vh;overflow-y:auto">
+            <v-list-item v-for="item in castDetails" :key="item.title">
+                <v-list-item-avatar class="hidden-xs-only">
+                    <v-img v-if="item.person.image!=null" :src="item.person.image.medium" contain />
+                    <v-img v-else src='@/assets/image-not-found.jpeg' contain></v-img>      
+                </v-list-item-avatar>
+                <v-list-item-content>
+                    <v-list-item-title v-text="item.person.name"></v-list-item-title>
+                </v-list-item-content>
+                <v-list-item-content>
+                    <v-list-item-title v-text="item.character.name"></v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+        </v-list>
     </div>
 </template>
 <script>
@@ -15,7 +21,7 @@ export default {
     props:['castDetails'],
     data(){
         return{
-            cast : this.castDetails
+            cast : this.castDetails,    
         }
     }
 }

@@ -18,7 +18,7 @@ describe("In Cast Team Component", () => {
             vuetify,
             router,
             propsData:{
-                crewDetails:{
+                crewDetails:[{
                     type: "Executive Producer",
                     person:{
                         name:"David Nutter",
@@ -27,11 +27,20 @@ describe("In Cast Team Component", () => {
                             medium:"http://static.tvmaze.com/uploads/images/medium_portrait/182/455179.jpg"
                         }
                     }
-                }
+                }]
             },
             data(){
                 return{
-                    crew: this.crewDetails,
+                    crew:[{
+                        type: "Executive Producer",
+                        person:{
+                            name:"David Nutter",
+                            url:"http://www.tvmaze.com/people/282/david-nutter",
+                            image:{
+                                medium:"http://static.tvmaze.com/uploads/images/medium_portrait/182/455179.jpg"
+                            }
+                        }
+                    }],
                 }
             },
         });

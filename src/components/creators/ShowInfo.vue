@@ -1,69 +1,33 @@
 <template>
     <div id="prodTeam">
-        <v-bottom-sheet v-model="crewSheet" inset>
-            <template v-slot:activator="{ on }">
-                <v-btn dark v-on="on">Crew</v-btn>
-            </template>
-            <v-sheet class="text-center" max-height="auto" color="light-green lighten-4">
-                <v-simple-table fixed-header height="300px">
-                    <template v-slot:default>
-                        <thead>
-                            <tr>
-                                <th class="text-center headline font-weight-bold">Crew</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="item in crew" :key="item.id">
-                                <td><app-crew-team :crewDetails="item"></app-crew-team></td>
-                            </tr>
-                        </tbody>
-                    </template>
-                </v-simple-table>
-            </v-sheet>
-        </v-bottom-sheet>
-
-
-        <v-bottom-sheet v-model="castSheet" inset>
-            <template v-slot:activator="{ on }">
-                <v-btn dark v-on="on">Cast</v-btn>
-            </template>
-            <v-sheet class="text-center" max-height="auto" color="light-green lighten-4">
-                <v-simple-table fixed-header height="300px">
-                    <template v-slot:default>
-                        <thead>
-                            <tr>
-                                <th class="text-center headline font-weight-bold">Cast</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="item in cast" :key="item.id">
-                                <td><app-cast-team :castDetails="item"></app-cast-team></td>
-                            </tr>
-                        </tbody>
-                    </template>
-                </v-simple-table>
-            </v-sheet>
-        </v-bottom-sheet>
-
-        <v-bottom-sheet v-model="episodeSheet" inset>
-            <template v-slot:activator="{ on }">
-                <v-btn dark v-on="on">Episode</v-btn>
-            </template>
-            <v-sheet class="text-center" max-height="auto" color="light-green lighten-4">
-                <v-simple-table fixed-header height="300px">
-                    <template v-slot:default>
-                        <thead>
-                            <tr>
-                                <th class="text-center headline font-weight-bold">Seasons</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           <td><app-episode :seasons="seasons" :episodes="episodes"></app-episode></td>
-                        </tbody>
-                    </template>
-                </v-simple-table>
-            </v-sheet>
-        </v-bottom-sheet>
+        <v-row>
+            <v-col sm="12" md="12" lg="12">
+                <v-card>
+                     <v-tabs grow>
+                        <v-tab>Cast</v-tab>
+                        <v-tab>Crew</v-tab>
+                        <v-tab>Episodes</v-tab>
+                        <v-tab-item>
+                            <v-container>
+                                    <app-cast-team :castDetails="cast"></app-cast-team>
+                            </v-container>
+                        </v-tab-item>
+                        <v-tab-item>
+                            <v-card flat>
+                                <v-container >
+                                    <app-crew-team :crewDetails="crew"></app-crew-team>
+                                </v-container>
+                            </v-card>
+                        </v-tab-item>
+                        <v-tab-item>
+                            <v-card flat>
+                                <app-episode :seasons="seasons" :episodes="episodes"></app-episode>
+                            </v-card>
+                        </v-tab-item>
+                    </v-tabs>
+            </v-card>
+            </v-col>
+        </v-row>
     </div>
 </template>
 <script>
@@ -77,14 +41,10 @@ export default {
         return{
             showId: this.id,
             productionTeam:{}, 
-            slide: null,
             crew: [],
             cast: [],
             seasons: [],
             episodes: [],
-            crewSheet: false,
-            castSheet: false,
-            episodeSheet: false
         }
     },
     components:{

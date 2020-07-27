@@ -1,7 +1,7 @@
 <template>
     <div id="card">
         <v-hover v-slot:default="{ hover }">
-            <v-card class="ma-3" shaped width="170" height="300" :elevation="hover ? 12 : 2" @click="showDetails(currentShow)">
+            <v-card class="ma-3" shaped width="170" :elevation="hover ? 12 : 2" @click="showDetails(currentShow)">
                 <v-container>
                     <v-row justify="space-between">
                         <v-col cols="auto">
@@ -21,7 +21,9 @@
                     </v-row>
                     <v-row justify="center">
                         <v-card-subtitle style="cursor:pointer">
-                            <strong>{{currentShow.name}}</strong></v-card-subtitle>
+                            <div v-if="currentShow.rating.average!=null">{{currentShow.rating.average}}<v-icon size="15">mdi-star</v-icon></div>
+                            <div>{{currentShow.name}}</div>
+                        </v-card-subtitle>
                     </v-row>
                 </v-container>
             </v-card>

@@ -18,19 +18,22 @@ describe("In Cast Team Component", () => {
             vuetify,
             router,
             propsData:{
-                castDetails:{
+                castDetails:[{
                     person:{
                         name:"Stephen Amell",
                         url:"http://www.tvmaze.com/people/271/stephen-amell",
                         image:{
                             medium:"http://static.tvmaze.com/uploads/images/medium_portrait/0/44.jpg"
                         }
+                    },
+                    character:{
+                        name: "Black Knight"
                     }
-                }
+                }]
             },
             data(){
                 return{
-                    cast: this.castDetails,
+                    cast: this.castDetails
                 }
             },
         });

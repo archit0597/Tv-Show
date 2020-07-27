@@ -1,15 +1,15 @@
 <template>
     <v-row justify="center">
-      <v-expansion-panels focusable>
+      <v-expansion-panels focusable style="maxWidth:95%;height:50vh;overflow-y:auto">
         <v-expansion-panel v-for="season in season" :key="season.id" @click="getEpisode(season.number)">
           <v-expansion-panel-header>Season {{season.number}}</v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-row>
                 <v-col v-for="item in seasonWiseList" :key="item.id">
-                    <v-card class="mx-auto" shaped:true width="300" elevation=2>
+                    <v-card class="mx-auto" shaped:true width="300"  elevation=2>
                         <a style="text-decoration: none" :href="item.url" target="_blank">
                             <span>{{item.number}}{{` `}}{{item.name}}</span>
-                        </a>                     
+                        </a>                    
                     </v-card>
                 </v-col>
             </v-row>

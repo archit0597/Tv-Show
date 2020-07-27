@@ -30,8 +30,6 @@ describe("In ShowInfo Component", () => {
                     slide: null,
                     crew: [],
                     cast: [],
-                    crewSheet: false,
-                    castSheet: false
                 }
             },
         });

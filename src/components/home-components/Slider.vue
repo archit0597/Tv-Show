@@ -1,6 +1,6 @@
 <template>
     <div id="slider">
-        <v-sheet height="350">
+        <v-sheet>
             <v-icon>mdi-dots-vertical</v-icon>
             <span class="font-weight-bold">{{genre}}</span>        
             <v-slide-group v-model="slide" show-arrows>

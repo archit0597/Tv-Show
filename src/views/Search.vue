@@ -1,21 +1,23 @@
 <template>
     <div class="search">
         <v-container>
-            <v-text-field style="margin-top:80px" outlined rounded @input="searchShow" class="customInput" 
+            <v-text-field outlined rounded @input="searchShow" class="customInput" 
             solo label="Search Shows" v-model="searchQuery"></v-text-field>
         </v-container>
         <v-row v-if="searchTrigger">
-            <v-col v-for="item in searchResults" :key="item.id" class="ml-5" cols="auto">
-                <app-show-card :show="item.show" class="zoom"></app-show-card>
-            </v-col>
-        </v-row>
-        <v-row v-else>
-            <v-container>
-                <v-card class="mx-auto" elevation=3>
-                    <v-card-text>No Results Found !!</v-card-text>
-                </v-card>
-            </v-container>
-        </v-row>
+                <v-row v-if="searchResults.length!=0">
+                    <v-col v-for="item in searchResults" :key="item.id" class="ml-5" cols="auto">
+                        <app-show-card :show="item.show" class="zoom"></app-show-card>
+                    </v-col>
+                </v-row>
+                <v-row v-else>
+                    <v-container>
+                        <v-card class="mx-auto" elevation=3>
+                            <v-card-text>No Results Found !!</v-card-text>
+                        </v-card>
+                    </v-container>
+                </v-row>
+        </v-row>        
     </div>
 </template>
 <script>
@@ -34,10 +36,11 @@ export default {
         searchShow(){
             this.searchTrigger = true;
             this.searchResults = [];
+            if(!this.searchQuery){
+                this.searchTrigger = false
+                return
+            }
             getShowsByName(this.searchQuery).then(response => {
-                if(response.data.length==0){
-                    this.searchTrigger = false;
-                }
                 this.searchResults = response.data;
             }).catch(err => alert(`${err}`)); 
         }
