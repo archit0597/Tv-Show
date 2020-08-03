@@ -15,7 +15,7 @@
 import AppShowCard from '@/components/home-components/ShowCard.vue';
 export default {
     props:{
-        list: Array,
+        list:[Array,Object],
         genre: String
     },
     data(){

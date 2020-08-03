@@ -56,7 +56,7 @@ export default {
         async init(){ 
             await getShowById(this.showId).then(response => {
                 this.productionTeam = response.data;
-            });
+            }).catch(error => alert(`${error}`));
             this.getData();
         },
         getData(){

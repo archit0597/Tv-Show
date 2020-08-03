@@ -6,7 +6,10 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import {routes} from '@/router/index.js';
-import { getAllShows } from '@/services/service.js';
+import axios from 'axios';
+import {getAllShows} from '@/services/service.js';
+
+jest.mock('axios');
 
 describe("In Home View", () => {
     let homeWrapper;
@@ -46,9 +49,9 @@ describe("In Home View", () => {
                         }],
                         genreList:["Drama","Action","Science Fiction","Crime","Thriller"],
                         errorStatus: false
-                }
-            },
-        });
+                    }
+                },
+            });
     });
 
     afterEach(() => {
@@ -80,9 +83,22 @@ describe("In Home View", () => {
           expect(homeWrapper.html()).toContain('app-slider-stub');
         });
     });
-
-    it('the data is fetched at created hook', async () => {
-        const response = await getAllShows();
-        expect(response.data).toBeTruthy();
+    it('fetches successfully data from getAllShows API', () => {
+        const response = {
+            data: {
+                id:4,
+                name:"Arrow",
+                genres: ["Drama", "Science-Fiction"],
+                rating: {
+                    average:7.4
+                },
+                image: {
+                    "medium":"http://static.tvmaze.com/",
+                    "original":"http://static.tvmaze.com/"
+                }
+            }
+        };
+        axios.get.mockImplementation(() => Promise.resolve(response));
+        expect(getAllShows()).resolves.toMatchObject(response);
     });
 });

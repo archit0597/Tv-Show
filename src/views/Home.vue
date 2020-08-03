@@ -38,7 +38,6 @@ export default {
       }
       catch(err){
         this.errorStatus = true;
-        console.log(err);
       }
       this.getGenres();
     },
