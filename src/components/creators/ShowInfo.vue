@@ -53,11 +53,13 @@ export default {
         AppEpisode
     },
     methods:{
-        async init(){ 
-            await getShowById(this.showId).then(response => {
-                this.productionTeam = response.data;
-            }).catch(error => alert(`${error}`));
-            this.getData();
+        async init(){
+            try{
+                const thePromiseValue = await getShowById(this.showId);
+                this.productionTeam = thePromiseValue.data;
+                this.getData();
+            }
+            catch(err){}
         },
         getData(){
             this.crew = this.productionTeam._embedded.crew;

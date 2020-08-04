@@ -26,6 +26,7 @@ describe("In Search Component", () => {
         });
     });
 
+    
     afterEach(() => {
         searchWrapper.destroy();
     });

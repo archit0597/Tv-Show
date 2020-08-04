@@ -40,7 +40,7 @@ export default {
             this.searchResults = [];
             if(!this.searchQuery){
                 this.searchTrigger = false
-                return
+                return;
             }
             getShowsByName(this.searchQuery).then(response => {
                 this.searchResults = response.data;

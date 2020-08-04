@@ -55,6 +55,7 @@ describe("In Home View", () => {
     });
 
     afterEach(() => {
+        jest.resetAllMocks();
         homeWrapper.destroy();
     });
 
@@ -82,23 +83,12 @@ describe("In Home View", () => {
         it('it should have a <app-slider-stub></app-slider-stub>', () => {
           expect(homeWrapper.html()).toContain('app-slider-stub');
         });
-    });
-    it('fetches successfully data from getAllShows API', () => {
-        const response = {
-            data: {
-                id:4,
-                name:"Arrow",
-                genres: ["Drama", "Science-Fiction"],
-                rating: {
-                    average:7.4
-                },
-                image: {
-                    "medium":"http://static.tvmaze.com/",
-                    "original":"http://static.tvmaze.com/"
-                }
-            }
-        };
-        axios.get.mockImplementation(() => Promise.resolve(response));
-        expect(getAllShows()).resolves.toMatchObject(response);
+    });    
+    it('should return shows', async () => {
+       const mockedShows = [{ shows: 1 }];
+       axios.get = jest.fn().mockResolvedValue(mockedShows);
+       const actualValue = await getAllShows();
+       expect(actualValue).toEqual(mockedShows);
+       expect(homeWrapper.vm.errorStatus).toBe(true);
     });
 });
